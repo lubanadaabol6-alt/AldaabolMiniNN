@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `AldaabolMiniNNproject`
-- **Generated On**: 2025-12-27 23:06:20 (Asia/Riyadh / GMT+03:00)
+- **Generated On**: 2025-12-27 23:40:17 (Asia/Riyadh / GMT+03:00)
 - **Total Files Processed**: 45
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -74,7 +74,7 @@
 │   └── 📄 tester.py (1.66 KB)
 ├── 📄 LICENSE.txt (1.07 KB)
 ├── 📄 README.md (6.49 KB)
-└── 📄 setup.py (750 B)
+└── 📄 setup.py (755 B)
 ```
 
 ## 📑 Table of Contents
@@ -1305,15 +1305,15 @@ PS C:\Users\lubanadaabol\python_projects\AldaabolMiniNNproject>
 ### <a id="📄-setup-py"></a>📄 `setup.py`
 
 **File Info:**
-- **Size**: 750 B
+- **Size**: 755 B
 - **Extension**: `.py`
 - **Language**: `python`
 - **Location**: `setup.py`
 - **Relative Path**: `root`
 - **Created**: 2025-12-27 07:53:12 (Asia/Riyadh / GMT+03:00)
-- **Modified**: 2025-12-27 16:05:20 (Asia/Riyadh / GMT+03:00)
-- **MD5**: `8cc266cc5a854dce27acb89a51ea1456`
-- **SHA256**: `bcfa28aae47e51d67cd09bbc1571c3ef750673c7a6340615264dfcf4379537b8`
+- **Modified**: 2025-12-27 23:40:17 (Asia/Riyadh / GMT+03:00)
+- **MD5**: `96f20aebd07ea15bd5c98c5bdaa4b33f`
+- **SHA256**: `ef8babceac5e10a36a1e00763f3a5d86bf02e03e609da6151559885708eccd03`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -1329,7 +1329,7 @@ setup(
     description="A mini neural network library built from scratch for educational purposes",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/AldaabolMiniNN",
+    url="https://github.com/lubanadaabol6-alt/AldaabolMiniNN",
     packages=find_packages(), 
     install_requires=[
         "numpy",
