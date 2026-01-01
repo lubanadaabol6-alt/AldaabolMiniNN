@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `AldaabolMiniNNproject`
-- **Generated On**: 2026-01-01 17:44:26 (Asia/Riyadh / GMT+03:00)
+- **Generated On**: 2026-01-01 18:11:51 (Asia/Riyadh / GMT+03:00)
 - **Total Files Processed**: 49
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -36,8 +36,8 @@
 │   │   │   └── 📄 layer.cpython-314.pyc (1.24 KB)
 │   │   ├── 📄 __init__.py
 │   │   ├── 📄 activations.py (1.18 KB)
-│   │   ├── 📄 batch_norm.py (2.05 KB)
-│   │   ├── 📄 dense.py (993 B)
+│   │   ├── 📄 batch_norm.py (1.79 KB)
+│   │   ├── 📄 dense.py (1.43 KB)
 │   │   ├── 📄 dropout.py (1022 B)
 │   │   └── 📄 layer.py (594 B)
 │   ├── 📁 losses/
@@ -65,7 +65,7 @@
 │   ├── 📄 __init__.py (737 B)
 │   ├── 📄 LICENSE.txt (1.07 KB)
 │   ├── 📄 network.py (902 B)
-│   ├── 📄 README.md (9.48 KB)
+│   ├── 📄 README.md (7.58 KB)
 │   ├── 📄 setup.py (755 B)
 │   ├── 📄 trainer.py (2.1 KB)
 │   └── 📄 tuner.py (2.5 KB)
@@ -77,7 +77,7 @@
 │   ├── 📄 __init__.py
 │   ├── 📄 tester.py (1.61 KB)
 │   └── 📄 tester1.py (1.53 KB)
-├── 📄 AldaabolMiniNN.zip (40.1 KB)
+├── 📄 AldaabolMiniNN.zip (40.09 KB)
 └── 📄 AldaabolMiniNNproject.txt (57.08 KB)
 ```
 
@@ -122,7 +122,7 @@
 | Total Directories | 10 |
 | Text Files | 26 |
 | Binary Files | 23 |
-| Total Size | 169.02 KB |
+| Total Size | 167.3 KB |
 
 ### 📄 File Types Distribution
 
@@ -239,15 +239,15 @@ class Softmax(Layer):
 ### <a id="📄-aldaabolmininn-layers-batch-norm-py"></a>📄 `AldaabolMiniNN/layers/batch_norm.py`
 
 **File Info:**
-- **Size**: 2.05 KB
+- **Size**: 1.79 KB
 - **Extension**: `.py`
 - **Language**: `python`
 - **Location**: `AldaabolMiniNN/layers/batch_norm.py`
 - **Relative Path**: `AldaabolMiniNN/layers`
 - **Created**: 2025-12-26 23:19:42 (Asia/Riyadh / GMT+03:00)
-- **Modified**: 2025-12-27 23:05:59 (Asia/Riyadh / GMT+03:00)
-- **MD5**: `d134437facfe194911d8c455335610a2`
-- **SHA256**: `7cb7e9358be468476a39aba597cfd1ef556ebf8e5d5331b503df18680c90fd4f`
+- **Modified**: 2026-01-01 17:49:34 (Asia/Riyadh / GMT+03:00)
+- **MD5**: `6fb13b3f5635c78fd3e8d384602f7e7b`
+- **SHA256**: `92e565023b4998482805aa759150ec20a75eb8fbc92df8f293eef97ebeb751b0`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -258,10 +258,8 @@ from .layer import Layer
 
 class BatchNormalization(Layer):
     '''
-    كلاس بيطبق تقنية التطبيع الداخلي للدفعات (Batch Normalization)
-    على الطبقة في الشبكة العصبية. هالتقنية بتساعد في تسريع
-    وتحسين استقرار التدريب عن طريق تطبيع مخرجات الطبقة السابقة
-    وتقليل التغيرات الداخلية في التوزيع الإحصائي للمدخلات.
+    هاد الكلاس بيعمل batch normalization للمدخلات
+    بيساعد في تسريع التدريب وتحسين استقرار النموذج
     '''
     def __init__(self, epsilon=1e-8):
         super().__init__("BatchNormalization")
@@ -306,16 +304,16 @@ class BatchNormalization(Layer):
 ### <a id="📄-aldaabolmininn-layers-dense-py"></a>📄 `AldaabolMiniNN/layers/dense.py`
 
 **File Info:**
-- **Size**: 993 B
+- **Size**: 1.43 KB
 - **Extension**: `.py`
 - **Language**: `python`
 - **Location**: `AldaabolMiniNN/layers/dense.py`
 - **Relative Path**: `AldaabolMiniNN/layers`
 - **Created**: 2025-12-26 23:17:36 (Asia/Riyadh / GMT+03:00)
-- **Modified**: 2026-01-01 17:44:25 (Asia/Riyadh / GMT+03:00)
-- **MD5**: `b9b89e0029058cdee3c0ea2c5417af21`
-- **SHA256**: `5d7a4819a13937ca9f6ae2a0f38505754e39ee325a0fac77aea386330b4be6f7`
-- **Encoding**: ASCII
+- **Modified**: 2026-01-01 17:52:54 (Asia/Riyadh / GMT+03:00)
+- **MD5**: `df8c249e1c72ae79d206992e00481858`
+- **SHA256**: `fcfb5f0d34946f0312a0b838b6612f5c0cbaf298d26cbbe56d1c8260afd79977`
+- **Encoding**: UTF-8
 
 **File code content:**
 
@@ -324,6 +322,13 @@ import numpy as np
 from .layer import Layer
 
 class Dense:
+    '''
+    كلاس بيمثل طبقة كثيفة (Dense Layer) في الشبكة العصبية
+    هي الطبقة بتعمل تحول خطي للمدخلات عن طريق ضربها في مصفوفة الأوزان
+    وإضافة الانحياز (biases). 
+    بيدعم تهيئة الأوزان باستخدام طرق مختلفة متل "xavier" و "he" أو تهيئة عشوائية بسيطة
+    ﻷداء أفضل في التدريب.
+    '''
     def __init__(self, in_features, out_features, init="xavier"):
         self.in_features = in_features
         self.out_features = out_features
@@ -929,55 +934,96 @@ class NeuralNetwork:
 ### <a id="📄-aldaabolmininn-readme-md"></a>📄 `AldaabolMiniNN/README.md`
 
 **File Info:**
-- **Size**: 9.48 KB
+- **Size**: 7.58 KB
 - **Extension**: `.md`
 - **Language**: `text`
 - **Location**: `AldaabolMiniNN/README.md`
 - **Relative Path**: `AldaabolMiniNN`
 - **Created**: 2025-12-27 07:52:40 (Asia/Riyadh / GMT+03:00)
-- **Modified**: 2026-01-01 16:39:37 (Asia/Riyadh / GMT+03:00)
-- **MD5**: `859f9c185bf4f08dd47f6cdf0e1788a6`
-- **SHA256**: `6d2eee92623f34c6693edb75e0fac3ee2196420d8f1d897b0ebbf10142709615`
+- **Modified**: 2026-01-01 18:11:50 (Asia/Riyadh / GMT+03:00)
+- **MD5**: `4c316b7967911502c7abc33eccd2bdf7`
+- **SHA256**: `21a0383242fe6ac38b0ce3b7a62aa30bffe3c4d32a655939e98c9915df1a85ed`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ````markdown
-Project Overview: AldaabolMiniNN Library
-AldaabolMiniNN** is a modular Deep Learning framework built entirely from scratch using **Python** and **NumPy**. The project mimics professional libraries like **PyTorch** by organizing components into a reusable package structure
+## Mini Neural Network Library
 
-How I Built It:
-**Modular Architecture:** I structured the library into independent sub-packages: `layers`, `optimizers`, `losses`, and `network`. Each component is isolated to ensure scalability.
-**The Core Engine:** Every layer inherits from a base `Layer` class, enforcing a strict contract for `forward` and `backward` passes using the **Chain Rule**.
-**Numerical Stability:** I implemented a specialized `SoftmaxCrossEntropy` loss that handles potential numerical overflows (using the max-subtraction trick)
-**Advanced Components:** I integrated a **Batch Normalization** layer to stabilize the internal covariate shift, allowing the model to train faster with higher learning rates
-**Automation (The Tuner):** I developed a `HyperparameterTuning` module to automatically find the best `Learning Rate` and `Batch Size` through a grid-search approach.
+This project is a **mini neural network library built from scratch using NumPy only**, without using frameworks such as PyTorch or TensorFlow.
 
-Final Performance:
-**Architecture:** `Dense > Sigmoid > BatchNorm > Dense > ReLU > Dense > SoftmaxWithLoss`.
-**Dataset:** Iris Dataset (Categorical Classification).
-**Results:** Successfully achieved **100% Validation Accuracy** with a final loss **0.0065**
+---
 
+## Project Features
 
-شرح عام:
-**AldaabolMiniNN** هو إطار عمل للتعلم العميق تم بناؤه بالكامل من الصفر باستخدام **Python** و **NumPy**. يحاكي المشروع هيكلية المكتبات الاحترافية مثل *PyTorch* من خلال تنظيم المكونات في حزمة برمجية (Package) قابلة لإعادة الاستخدام
+* Build neural networks using different layers
+* Train the network using backpropagation
+* Support multiple optimizers
+* Use different loss functions
+* Perform hyperparameter tuning
+* Train and evaluate on real datasets
 
-كيف أنجزت العمل:
-**الهيكلية المجزأة (Modular Architecture):** قمت بتنظيم المكتبة إلى حزم فرعية مستقلة: `layers` (الطبقات)، `optimizers` (المحسنات)، `losses` (دوال الخسارة)، و `network` (الشبكة)
-**المحرك الأساسي:** ترث كل طبقة من كلاس أساسي `Layer` يفرض تنفيذ عمليتي الانتشار الأمامي والخلفي باستخدام **قاعدة السلسلة (Chain Rule)** بدقة رياضية
-**الاستقرار الحسابي:** نفذت دالة خسارة `SoftmaxCrossEntropy` متطورة تعالج مشكلة القيم الضخمة (Overflow) لضمان استقرار التدريب
- **المكونات المتقدمة:** أضفت طبقة **Batch Normalization** لمعايرة البيانات داخلياً، مما سمح للنموذج بالتدريب بسرعة أكبر وبمعدلات تعلم أعلى دون تذبذب
- **الأتمتة (Tuning):** قمت بتطوير وحدة `HyperparameterTuning` للبحث تلقائياً عن أفضل "معدل تعلم" و "حجم دفعة" (Batch Size) لضمان الوصول للحل الأمثل
+## Implemented Components
 
-  الأداء النهائي:
-**هيكلية الشبكة:** `Dense > Sigmoid > BatchNorm > Dense > ReLU > Dense > SoftmaxWithLoss`.
-**مجموعة البيانات:** Iris Dataset (تصنيف الفئات).
-**النتائج:** نجحت المكتبة في الوصول إلى دقة **100%** على بيانات الاختبار مع خسارة نهائية ضئيلة بلغت **0.0065**.
+### Neural Network
 
+* Manages layers in sequence
+* Performs forward prediction through all layers
+
+---
+
+### Layers
+
+* **Dense (Fully Connected)**
+* **Activation Functions:** ReLU, Sigmoid, Tanh
+* **Batch Normalization**
+* **Dropout**
+
+---
+
+### Loss Functions
+
+* **MSE** (for regression)
+* **Softmax Cross-Entropy** (for multi-class classification)
+
+---
+
+### Optimizers
+
+* **SGD**
+* **Momentum**
+* **Adam**
+* **AdaGrad**
+
+---
+
+### Trainer
+
+* Handles the training process
+* Performs forward and backward propagation
+* Updates weights using the optimizer
+* Computes loss and accuracy
+* Supports mini-batch training
+
+---
+
+### Hyperparameter Tuning
+
+* Tests different learning rates and batch sizes
+* Selects the best parameters based on validation accuracy 
+
+---
+
+## Experiment 1
+
+* Dataset: **Iris Dataset**
+* Loss fun: **SoftmaxCrossEnrtopy**
+* Optimizer: **SGD**
+* Data split into training and validation sets
+* Achieved accuracy up to **~100%**
 
 
 *OUTPUT EXAMPLE (1):*
-Dataset: iris ====== loss fun: SoftmaxCrossEnrtopy ====== optimizer: SGD
 Testing:  LR=0.1 ,  Batch=8
 Epoch 0:   Loss 1.1194,   Validation Accuracy: 73.33%
 Epoch 100:   Loss 0.4267,   Validation Accuracy: 90.00%
@@ -1047,8 +1093,14 @@ Epoch 900:   Loss 0.0363,   Validation Accuracy: 100.00%
 Epoch 1000:   Loss 0.0124,   Validation Accuracy: 93.33%
 
 
+## Experiment 2
+
+* Dataset: **Digits Dataset**
+* Loss fun: **SoftmaxCrossEnrtopy**
+* Optimizer: **AbaGrad**
+* Achieved accuracy up to **~99%**
+
 *OUTPUT EXAMPLE (2):*
-Dataset: digits ====== loss fun: SoftmaxCrossEnrtopy ====== optimizer: AbaGrad
 Testing:  LR=0.1 ,  Batch=8
 Epoch 0:   Loss 0.3851,   Validation Accuracy: 93.33%
 Epoch 100:   Loss 0.0008,   Validation Accuracy: 98.61%

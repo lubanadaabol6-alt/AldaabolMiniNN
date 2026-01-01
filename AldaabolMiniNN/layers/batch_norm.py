@@ -3,10 +3,8 @@ from .layer import Layer
 
 class BatchNormalization(Layer):
     '''
-    كلاس بيطبق تقنية التطبيع الداخلي للدفعات (Batch Normalization)
-    على الطبقة في الشبكة العصبية. هالتقنية بتساعد في تسريع
-    وتحسين استقرار التدريب عن طريق تطبيع مخرجات الطبقة السابقة
-    وتقليل التغيرات الداخلية في التوزيع الإحصائي للمدخلات.
+    هاد الكلاس بيعمل batch normalization للمدخلات
+    بيساعد في تسريع التدريب وتحسين استقرار النموذج
     '''
     def __init__(self, epsilon=1e-8):
         super().__init__("BatchNormalization")

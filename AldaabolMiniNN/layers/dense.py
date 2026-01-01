@@ -2,6 +2,13 @@ import numpy as np
 from .layer import Layer
 
 class Dense:
+    '''
+    كلاس بيمثل طبقة كثيفة (Dense Layer) في الشبكة العصبية
+    هي الطبقة بتعمل تحول خطي للمدخلات عن طريق ضربها في مصفوفة الأوزان
+    وإضافة الانحياز (biases). 
+    بيدعم تهيئة الأوزان باستخدام طرق مختلفة متل "xavier" و "he" أو تهيئة عشوائية بسيطة
+    ﻷداء أفضل في التدريب.
+    '''
     def __init__(self, in_features, out_features, init="xavier"):
         self.in_features = in_features
         self.out_features = out_features

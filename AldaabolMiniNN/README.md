@@ -1,38 +1,79 @@
-Project Overview: AldaabolMiniNN Library
-AldaabolMiniNN** is a modular Deep Learning framework built entirely from scratch using **Python** and **NumPy**. The project mimics professional libraries like **PyTorch** by organizing components into a reusable package structure
+## Mini Neural Network Library
 
-How I Built It:
-**Modular Architecture:** I structured the library into independent sub-packages: `layers`, `optimizers`, `losses`, and `network`. Each component is isolated to ensure scalability.
-**The Core Engine:** Every layer inherits from a base `Layer` class, enforcing a strict contract for `forward` and `backward` passes using the **Chain Rule**.
-**Numerical Stability:** I implemented a specialized `SoftmaxCrossEntropy` loss that handles potential numerical overflows (using the max-subtraction trick)
-**Advanced Components:** I integrated a **Batch Normalization** layer to stabilize the internal covariate shift, allowing the model to train faster with higher learning rates
-**Automation (The Tuner):** I developed a `HyperparameterTuning` module to automatically find the best `Learning Rate` and `Batch Size` through a grid-search approach.
+This project is a **mini neural network library built from scratch using NumPy only**, without using frameworks such as PyTorch or TensorFlow.
 
-Final Performance:
-**Architecture:** `Dense > Sigmoid > BatchNorm > Dense > ReLU > Dense > SoftmaxWithLoss`.
-**Dataset:** Iris Dataset (Categorical Classification).
-**Results:** Successfully achieved **100% Validation Accuracy** with a final loss **0.0065**
+---
 
+## Project Features
 
-شرح عام:
-**AldaabolMiniNN** هو إطار عمل للتعلم العميق تم بناؤه بالكامل من الصفر باستخدام **Python** و **NumPy**. يحاكي المشروع هيكلية المكتبات الاحترافية مثل *PyTorch* من خلال تنظيم المكونات في حزمة برمجية (Package) قابلة لإعادة الاستخدام
+* Build neural networks using different layers
+* Train the network using backpropagation
+* Support multiple optimizers
+* Use different loss functions
+* Perform hyperparameter tuning
+* Train and evaluate on real datasets
 
-كيف أنجزت العمل:
-**الهيكلية المجزأة (Modular Architecture):** قمت بتنظيم المكتبة إلى حزم فرعية مستقلة: `layers` (الطبقات)، `optimizers` (المحسنات)، `losses` (دوال الخسارة)، و `network` (الشبكة)
-**المحرك الأساسي:** ترث كل طبقة من كلاس أساسي `Layer` يفرض تنفيذ عمليتي الانتشار الأمامي والخلفي باستخدام **قاعدة السلسلة (Chain Rule)** بدقة رياضية
-**الاستقرار الحسابي:** نفذت دالة خسارة `SoftmaxCrossEntropy` متطورة تعالج مشكلة القيم الضخمة (Overflow) لضمان استقرار التدريب
- **المكونات المتقدمة:** أضفت طبقة **Batch Normalization** لمعايرة البيانات داخلياً، مما سمح للنموذج بالتدريب بسرعة أكبر وبمعدلات تعلم أعلى دون تذبذب
- **الأتمتة (Tuning):** قمت بتطوير وحدة `HyperparameterTuning` للبحث تلقائياً عن أفضل "معدل تعلم" و "حجم دفعة" (Batch Size) لضمان الوصول للحل الأمثل
+## Implemented Components
 
-  الأداء النهائي:
-**هيكلية الشبكة:** `Dense > Sigmoid > BatchNorm > Dense > ReLU > Dense > SoftmaxWithLoss`.
-**مجموعة البيانات:** Iris Dataset (تصنيف الفئات).
-**النتائج:** نجحت المكتبة في الوصول إلى دقة **100%** على بيانات الاختبار مع خسارة نهائية ضئيلة بلغت **0.0065**.
+### Neural Network
 
+* Manages layers in sequence
+* Performs forward prediction through all layers
+
+---
+
+### Layers
+
+* **Dense (Fully Connected)**
+* **Activation Functions:** ReLU, Sigmoid, Tanh
+* **Batch Normalization**
+* **Dropout**
+
+---
+
+### Loss Functions
+
+* **MSE** (for regression)
+* **Softmax Cross-Entropy** (for multi-class classification)
+
+---
+
+### Optimizers
+
+* **SGD**
+* **Momentum**
+* **Adam**
+* **AdaGrad**
+
+---
+
+### Trainer
+
+* Handles the training process
+* Performs forward and backward propagation
+* Updates weights using the optimizer
+* Computes loss and accuracy
+* Supports mini-batch training
+
+---
+
+### Hyperparameter Tuning
+
+* Tests different learning rates and batch sizes
+* Selects the best parameters based on validation accuracy 
+
+---
+
+## Experiment 1
+
+* Dataset: **Iris Dataset**
+* Loss fun: **SoftmaxCrossEnrtopy**
+* Optimizer: **SGD**
+* Data split into training and validation sets
+* Achieved accuracy up to **~100%**
 
 
 *OUTPUT EXAMPLE (1):*
-Dataset: iris ====== loss fun: SoftmaxCrossEnrtopy ====== optimizer: SGD
 Testing:  LR=0.1 ,  Batch=8
 Epoch 0:   Loss 1.1194,   Validation Accuracy: 73.33%
 Epoch 100:   Loss 0.4267,   Validation Accuracy: 90.00%
@@ -102,8 +143,14 @@ Epoch 900:   Loss 0.0363,   Validation Accuracy: 100.00%
 Epoch 1000:   Loss 0.0124,   Validation Accuracy: 93.33%
 
 
+## Experiment 2
+
+* Dataset: **Digits Dataset**
+* Loss fun: **SoftmaxCrossEnrtopy**
+* Optimizer: **AbaGrad**
+* Achieved accuracy up to **~99%**
+
 *OUTPUT EXAMPLE (2):*
-Dataset: digits ====== loss fun: SoftmaxCrossEnrtopy ====== optimizer: AbaGrad
 Testing:  LR=0.1 ,  Batch=8
 Epoch 0:   Loss 0.3851,   Validation Accuracy: 93.33%
 Epoch 100:   Loss 0.0008,   Validation Accuracy: 98.61%
