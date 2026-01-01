@@ -9,9 +9,6 @@ from AldaabolMiniNN import (
     MSE, SoftmaxCrossEntropy, 
 )
 
-# للتشغيل من مجلد البروجكت AldaabolMiniNNproject
-# py -m test.tester
-
 
 # load and prepare data
 iris = load_iris()
@@ -22,12 +19,12 @@ X_train, X_test, y_train, y_test = train_test_split(iris.data, y_onehot, test_si
 # built the test model
 def build_model():
     model = NeuralNetwork()
-    model.add(Dense(4, 32))     
+    model.add(Dense(4, 32, init = 'he'))     
     model.add(Sigmoid())
     model.add(BatchNormalization(32))
-    model.add(Dense(32, 16))
+    model.add(Dense(32, 16, init = 'he'))
     model.add(ReLU())
-    model.add(Dense(16, 3))      
+    model.add(Dense(16, 3, init = 'xaviar'))      
     return model
 
 # search for best hyperparameters

@@ -10,8 +10,8 @@ from AldaabolMiniNN import (
 )
 
 digits = load_digits()
-X = digits.data          # shape = (n, 64)
-y = digits.target        # 10 classes
+X = digits.data         
+y = digits.target        
 
 encoder = OneHotEncoder(sparse_output=False)
 y_onehot = encoder.fit_transform(y.reshape(-1, 1))
@@ -22,12 +22,12 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 def build_model():
     model = NeuralNetwork()
-    model.add(Dense(64, 64))
+    model.add(Dense(64, 64, init = 'he'))
     model.add(ReLU())
     model.add(BatchNormalization(64))
-    model.add(Dense(64, 32))
+    model.add(Dense(64, 32, init = 'he'))
     model.add(ReLU())
-    model.add(Dense(32, 10))   # 10 classes
+    model.add(Dense(32, 10, init = 'xaviar'))   
     return model
 
 tuning = HyperparameterTuning(X_train, y_train, X_test, y_test)
