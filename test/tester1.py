@@ -1,6 +1,6 @@
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_digits
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.model_selection import train_test_split
 
 from AldaabolMiniNN import (
     NeuralNetwork,Trainer, HyperparameterTuning,
@@ -9,28 +9,27 @@ from AldaabolMiniNN import (
     MSE, SoftmaxCrossEntropy, 
 )
 
-# للتشغيل من مجلد البروجكت AldaabolMiniNNproject
-# py -m test.tester
+digits = load_digits()
+X = digits.data          # shape = (n, 64)
+y = digits.target        # 10 classes
 
-
-# load and prepare data
-iris = load_iris()
 encoder = OneHotEncoder(sparse_output=False)
-y_onehot = encoder.fit_transform(iris.target.reshape(-1, 1))
-X_train, X_test, y_train, y_test = train_test_split(iris.data, y_onehot, test_size=0.2, random_state=42)
+y_onehot = encoder.fit_transform(y.reshape(-1, 1))
 
-# built the test model
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y_onehot, test_size=0.2, random_state=42
+)
+
 def build_model():
     model = NeuralNetwork()
-    model.add(Dense(4, 32))     
-    model.add(Sigmoid())
-    model.add(BatchNormalization(32))
-    model.add(Dense(32, 16))
+    model.add(Dense(64, 64))
     model.add(ReLU())
-    model.add(Dense(16, 3))      
+    model.add(BatchNormalization(64))
+    model.add(Dense(64, 32))
+    model.add(ReLU())
+    model.add(Dense(32, 10))   # 10 classes
     return model
 
-# search for best hyperparameters
 tuning = HyperparameterTuning(X_train, y_train, X_test, y_test)
 
 best_params = tuning.find_best_params(
@@ -42,8 +41,7 @@ best_params = tuning.find_best_params(
     epochs        = 300
 )
 
-# train final model with best hyperparameters
-final_optimizer = SGD(learning_rate=best_params['lr'])
+final_optimizer = AdaGrad(learning_rate=best_params['lr'])
 final_loss      = SoftmaxCrossEntropy()
 final_model     = build_model()
 

@@ -3,7 +3,6 @@ class Trainer:
     '''
     هاد الكلاس بيشرف على عملية تدريب الشبكة العصبية.
     بيستخدم الـ Optimizer لتحديث الأوزان وبيحسب الخسارة باستخدام دالة الخسارة المحددة.
-    
     '''
     def __init__(self, model, optimizer, loss_fn):
         self.model = model
